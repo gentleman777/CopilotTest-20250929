@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Meeting Details</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${meeting.title}">Meeting Title</h1>
+    <p><strong>Organizer:</strong> <span th:text="${meeting.organizer}">Organizer Name</span></p>
+    <p><strong>Location:</strong> <span th:text="${meeting.location}">Location</span></p>
+
+    <a th:href="@{/meetings/{id}/edit(id=${meeting.id})}" class="btn btn-primary">Edit</a>
+    <form th:action="@{/meetings/{id}/delete(id=${meeting.id})}" method="post" style="display:inline;">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+    <a href="/meetings" class="btn btn-secondary">Back to list</a>
+</div>
+</body>
+</html>

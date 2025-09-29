@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Meetings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Meetings</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Organizer</th>
+            <th>Location</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="meeting : ${meetings}">
+            <td><a th:href="@{/meetings/{id}(id=${meeting.id})}" th:text="${meeting.title}"></a></td>
+            <td th:text="${meeting.organizer}"></td>
+            <td th:text="${meeting.location}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/meetings/new" class="btn btn-primary">Create a new meeting</a>
+</div>
+</body>
+</html>
